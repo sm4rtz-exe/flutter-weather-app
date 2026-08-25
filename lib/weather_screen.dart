@@ -13,12 +13,21 @@ class WeatherScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          GestureDetector(
-            child: Icon(Icons.refresh),
-            onTap: () {
+          IconButton(
+            onPressed: () {
               print("refresh");
             },
+            icon: const Icon(Icons.refresh),
           ),
+        ],
+      ),
+      body: Column(
+        children: [
+          //main card
+          Placeholder(fallbackHeight: 250.00),
+          SizedBox(height: 20),
+          //weather forecast card
+          Placeholder(fallbackHeight: 150.00),
         ],
       ),
     );
