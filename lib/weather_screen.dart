@@ -27,6 +27,7 @@ class WeatherScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //main card
             SizedBox(
@@ -40,7 +41,7 @@ class WeatherScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                    child: Padding(
+                    child: Container(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
                         children: [
@@ -62,7 +63,158 @@ class WeatherScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            //weather forecast card
+            const Text(
+              "Weather Forecast",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            ),
+            const SizedBox(height: 16),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 100,
+                    child: Card(
+                      elevation: 6,
+                      child: Container(
+                        width: 200,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              "time",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Icon(Icons.cloud, size: 32),
+                            const SizedBox(height: 8),
+                            Text("Temp", style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 100,
+                    child: Card(
+                      elevation: 6,
+                      child: Container(
+                        width: 200,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              "time",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Icon(Icons.cloud, size: 32),
+                            const SizedBox(height: 8),
+                            Text("Temp", style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 100,
+                    child: Card(
+                      elevation: 6,
+                      child: Container(
+                        width: 200,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              "time",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Icon(Icons.cloud, size: 32),
+                            const SizedBox(height: 8),
+                            Text("Temp", style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 100,
+                    child: Card(
+                      elevation: 6,
+                      child: Container(
+                        width: 200,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              "time",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Icon(Icons.cloud, size: 32),
+                            const SizedBox(height: 8),
+                            Text("Temp", style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 100,
+                    child: Card(
+                      elevation: 6,
+                      child: Container(
+                        width: 200,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              "time",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Icon(Icons.cloud, size: 32),
+                            const SizedBox(height: 8),
+                            Text("Temp", style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Placeholder(fallbackHeight: 150.00),
             SizedBox(height: 20),
             //additional information
