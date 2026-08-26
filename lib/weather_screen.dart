@@ -67,15 +67,16 @@ class WeatherScreen extends StatelessWidget {
               "Weather Forecast",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ),
-            const SizedBox(height: 16),
-            const SingleChildScrollView(
+            const SizedBox(height: 8),
+            SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
-                  HourlyForecastItem(),
+                  HourlyForecastItem(
+                    time: DateTime.parse("2026-08-26 14:00:00"),
+                    icon: Icons.sunny,
+                    temp: "30°C",
+                  ),
                 ],
               ),
             ),
@@ -84,13 +85,25 @@ class WeatherScreen extends StatelessWidget {
               "Additional Information",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ),
-            const SizedBox(height: 16),
-            Row(
+            const SizedBox(height: 8),
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                AdditionalInfoItem(),
-                AdditionalInfoItem(),
-                AdditionalInfoItem(),
+                AdditionalInfoItem(
+                  icon: Icons.water_drop,
+                  label: "Humidity",
+                  value: 67,
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.wind_power,
+                  label: "Wind Speed",
+                  value: 41,
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.beach_access,
+                  label: "Pressure",
+                  value: 10000,
+                ),
               ],
             ),
           ],

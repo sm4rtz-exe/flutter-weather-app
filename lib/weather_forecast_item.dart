@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
 class HourlyForecastItem extends StatelessWidget {
-  const HourlyForecastItem({super.key});
+  final DateTime time;
+  final IconData icon;
+  final String temp;
+  const HourlyForecastItem({
+    super.key,
+    required this.time,
+    required this.icon,
+    required this.temp,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final String formattedTime =
+        '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}';
     return Card(
       elevation: 6,
       child: Container(
@@ -14,13 +24,13 @@ class HourlyForecastItem extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "time",
+              formattedTime,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            Icon(Icons.cloud, size: 32),
+            Icon(icon, size: 32),
             const SizedBox(height: 8),
-            Text("Temp", style: TextStyle(fontSize: 16)),
+            Text(temp, style: TextStyle(fontSize: 16)),
           ],
         ),
       ),
@@ -29,19 +39,27 @@ class HourlyForecastItem extends StatelessWidget {
 }
 
 class AdditionalInfoItem extends StatelessWidget {
-  const new({super.key});
+  final IconData icon;
+  final String label;
+  final double value;
+  const AdditionalInfoItem({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(Icons.water_drop, size: 32),
-        SizedBox(height: 8),
-        Text("Humidity"),
-        SizedBox(height: 8),
+        Icon(icon, size: 32),
+        const SizedBox(height: 8),
+        Text(label),
+        const SizedBox(height: 8),
         Text(
-          "percent",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          "$value",
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ],
     );
