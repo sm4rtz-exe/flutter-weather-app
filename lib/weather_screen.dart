@@ -107,9 +107,10 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 ),
                                 const SizedBox(height: 16),
                                 Icon(
-                                  currentWeather == 'Clouds' ||
-                                          currentWeather == 'Rain'
+                                  currentWeather == 'Clouds'
                                       ? Icons.cloud
+                                      : currentWeather == 'Rain'
+                                      ? Icons.thunderstorm
                                       : Icons.sunny,
                                   size: 64,
                                 ),
@@ -126,20 +127,29 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   ),
                   SizedBox(height: 20),
                   const Text(
-                    "Weather Forecast",
+                    "Hourly Forecast",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                   ),
-                  const SizedBox(height: 8),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: [
-                        HourlyForecastItem(
-                          time: DateTime.parse("2026-08-26 14:00:00"),
-                          icon: Icons.sunny,
-                          temp: "30°C",
-                        ),
-                      ],
+                      children: List.generate(5, (i) {
+                        final currentSky =
+                            data['list'][i + 1]['weather'][0]['main'];
+                        final temp = data['list'][i + 1]['main']['temp'];
+                        final time = DateTime.parse(
+                          data['list'][i + 1]['dt_txt'],
+                        );
+                        return HourlyForecastItem(
+                          time: time,
+                          icon: currentSky == 'Clouds'
+                              ? Icons.cloud
+                              : currentSky == 'Rain'
+                              ? Icons.thunderstorm
+                              : Icons.sunny,
+                          temp: "$temp K",
+                        );
+                      }),
                     ),
                   ),
                   SizedBox(height: 20),
