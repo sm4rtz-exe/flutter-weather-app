@@ -68,6 +68,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
           final currentTemp = data['list'][0]['main']['temp'];
           final location = data['city']['name'];
           final currentWeather = data['list'][0]['weather'][0]['main'];
+          final pressure = data['list'][0]['main']['pressure'];
+          final windSpeed = data['list'][0]['wind']['speed'];
+          final humidity = data['list'][0]['main']['humidity'];
 
           return SingleChildScrollView(
             child: Padding(
@@ -145,23 +148,23 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                   ),
                   const SizedBox(height: 8),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       AdditionalInfoItem(
                         icon: Icons.water_drop,
                         label: "Humidity",
-                        value: 67,
+                        value: humidity.toString(),
                       ),
                       AdditionalInfoItem(
                         icon: Icons.wind_power,
                         label: "Wind Speed",
-                        value: 41,
+                        value: windSpeed.toString(),
                       ),
                       AdditionalInfoItem(
                         icon: Icons.beach_access,
                         label: "Pressure",
-                        value: 10000,
+                        value: pressure.toString(),
                       ),
                     ],
                   ),

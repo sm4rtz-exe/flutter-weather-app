@@ -41,7 +41,7 @@ class HourlyForecastItem extends StatelessWidget {
 class AdditionalInfoItem extends StatelessWidget {
   final IconData icon;
   final String label;
-  final double value;
+  final String value;
   const AdditionalInfoItem({
     super.key,
     required this.icon,
