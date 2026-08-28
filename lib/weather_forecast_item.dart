@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HourlyForecastItem extends StatelessWidget {
   final DateTime time;
@@ -13,8 +14,7 @@ class HourlyForecastItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String formattedTime =
-        '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}';
+    final String formattedTime = DateFormat.Hm().format(time);
     return Card(
       elevation: 6,
       child: Container(
