@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:weather_app/weather_forecast_item.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -130,10 +131,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     "Hourly Forecast",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: List.generate(5, (i) {
+                  SizedBox(
+                    height: 120,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 5,
+                      itemBuilder: (context, i) {
                         final currentSky =
                             data['list'][i + 1]['weather'][0]['main'];
                         final temp = data['list'][i + 1]['main']['temp'];
@@ -149,7 +152,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                               : Icons.sunny,
                           temp: "$temp K",
                         );
-                      }),
+                      },
                     ),
                   ),
                   SizedBox(height: 20),

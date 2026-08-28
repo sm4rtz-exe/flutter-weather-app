@@ -26,6 +26,8 @@ class HourlyForecastItem extends StatelessWidget {
             Text(
               formattedTime,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 8),
             Icon(icon, size: 32),
@@ -58,7 +60,7 @@ class AdditionalInfoItem extends StatelessWidget {
         Text(label),
         const SizedBox(height: 8),
         Text(
-          "$value",
+          value,
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ],
